@@ -1,37 +1,37 @@
 USE [EnesOzmus.03Week]
 GO
-/** Temel CRUD İşlemleri **/
---SELECT: 					Veri tabanından verileri getirir.
-		-- Ürünler tablosunu getir
+/** Temel CRUD Ä°ÅŸlemleri **/
+--SELECT: 					Veri tabanÄ±ndan verileri getirir.
+		-- ÃœrÃ¼nler tablosunu getir
 		SELECT * FROM Products;
-		-- Ürünler tablosundan ad ve fiyat sütünlarını getir.
+		-- ÃœrÃ¼nler tablosundan ad ve fiyat sÃ¼tÃ¼nlarÄ±nÄ± getir.
 		SELECT Name, Price FROM Products;
 		-- Kategoriler tablosunun eklenme tarihlerini getir.
 		SELECT CreatedDate FROM Categories;
 
 
---WHERE:					Yalnızca belirli bir koşulu karşılayan kayıtları getirir.
-		-- Ürünler tablosundan Id'si 1 olan ürünü getir.
+--WHERE:					YalnÄ±zca belirli bir koÅŸulu karÅŸÄ±layan kayÄ±tlarÄ± getirir.
+		-- ÃœrÃ¼nler tablosundan Id'si 1 olan Ã¼rÃ¼nÃ¼ getir.
 		SELECT * FROM Products WHERE Id = 1;
-		-- Ürün Detayları tablosundan markası LCW olan ürünleri getir.
+		-- ÃœrÃ¼n DetaylarÄ± tablosundan markasÄ± LCW olan Ã¼rÃ¼nleri getir.
 		SELECT * FROM ProductDetails WHERE Brand = 'LCW';
 
 
---INSERT INTO:				Bir tabloya yeni kayıtlar ekler.
+--INSERT INTO:				Bir tabloya yeni kayÄ±tlar ekler.
 	-- Kategoriler tablosuna yeni bir kategori ekler.
-	INSERT [dbo].[Categories] ([CategoryName], [Description], [CreatedDate], [LastModifiedDate]) VALUES (N'Yelekler', N'Kış Sezonu', CAST(N'2022-04-26T00:00:00.0000000' AS DateTime2), NULL)
+	INSERT [dbo].[Categories] ([CategoryName], [Description], [CreatedDate], [LastModifiedDate]) VALUES (N'Yelekler', N'KÄ±ÅŸ Sezonu', CAST(N'2022-04-26T00:00:00.0000000' AS DateTime2), NULL)
 
 
---UPDATE:					Bir tablodaki mevcut kayıtları düzenler.
---							WHERE yan tümcesini hangi kayıtların güncellenmesi gerektiğini berlirtir.
---							DİKKAT!: WHERE yan tümcesini atlarsanız, tablodaki tüm kayıtlar güncellenecektir!
-	-- Ürünler tablosundaki Id'si 1 olan ürünü günceller.
+--UPDATE:					Bir tablodaki mevcut kayÄ±tlarÄ± dÃ¼zenler.
+--						WHERE yan tÃ¼mcesini hangi kayÄ±tlarÄ±n gÃ¼ncellenmesi gerektiÄŸini berlirtir.
+--						DÄ°KKAT!: WHERE yan tÃ¼mcesini atlarsanÄ±z, tablodaki tÃ¼m kayÄ±tlar gÃ¼ncellenecektir!
+	-- ÃœrÃ¼nler tablosundaki Id'si 1 olan Ã¼rÃ¼nÃ¼ gÃ¼nceller.
 	UPDATE Products SET Name = 'Deneme' WHERE Id = 1;
-	-- Kategoriler tablosundaki adı Kazak olan kategoriyi günceller.
+	-- Kategoriler tablosundaki adÄ± Kazak olan kategoriyi gÃ¼nceller.
 	UPDATE Categories SET CategoryName = 'test' WHERE CategoryName = 'Kazak';
 
---DELETE:					Bir tablodaki mevcut kayıtları siler.
---							WHERE yan tümcesini hangi kayıtların silinmesi gerektiğini berlirtir.
---							DİKKAT!: WHERE yan tümcesini atlarsanız, tablodaki tüm kayıtlar silinecektir!
-	-- Ürünler tablosundaki Id'si 1 olan ürünü siler.(kısıtlandı)
+--DELETE:					Bir tablodaki mevcut kayÄ±tlarÄ± siler.
+--						WHERE yan tÃ¼mcesini hangi kayÄ±tlarÄ±n silinmesi gerektiÄŸini berlirtir.
+--						DÄ°KKAT!: WHERE yan tÃ¼mcesini atlarsanÄ±z, tablodaki tÃ¼m kayÄ±tlar silinecektir!
+	-- ÃœrÃ¼nler tablosundaki Id'si 1 olan Ã¼rÃ¼nÃ¼ siler.(kÄ±sÄ±tlandÄ±)
 	DELETE FROM Products WHERE Id = 1;
